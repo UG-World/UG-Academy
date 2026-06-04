@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UG Academy</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:url('bg1.png') center center/cover no-repeat;
+}
+
+/* Overlay */
+.overlay{
+    background:rgba(0,0,0,0.65);
+    min-height:100vh;
+}
+
+/* Navbar */
+nav{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 5%;
+    backdrop-filter:blur(10px);
+    background:rgba(255,255,255,0.08);
+}
+
+.logo-box{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-box img{
+    width:55px;
+    height:55px;
+    border-radius:15px;
+    object-fit:cover;
+}
+
+.logo-box h2{
+    color:white;
+    font-size:1.4rem;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#00c3ff;
+}
+
+.download-btn{
+    text-decoration:none;
+    background:#00c3ff;
+    color:white;
+    padding:12px 22px;
+    border-radius:30px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.download-btn:hover{
+    transform:translateY(-2px);
+}
+
+/* Hero Section */
+
+.hero{
+    min-height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero-content{
+    color:white;
+}
+
+.hero-content h1{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.hero-content p{
+    font-size:1.1rem;
+    max-width:700px;
+    margin:auto;
+    margin-bottom:30px;
+}
+
+.demo-btn{
+    display:inline-block;
+    padding:18px 60px;
+    border-radius:20px;
+    background:white;
+    color:black;
+    text-decoration:none;
+    font-size:1.2rem;
+    font-weight:bold;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    transition:.3s;
+}
+
+.demo-btn:hover{
+    transform:scale(1.05);
+}
+
+/* Mobile */
+
+@media(max-width:900px){
+
+    nav{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    .hero-content h1{
+        font-size:2rem;
+    }
+
+    .hero-content p{
+        font-size:1rem;
+    }
+
+    .demo-btn{
+        width:220px;
+        text-align:center;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="overlay">
+
+<nav>
+
+    <div class="logo-box">
+        <img src="UG-Academy.png" alt="UG Academy">
+        <h2>UG Academy</h2>
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="facilities.html">Facilities</a>
+        <a href="ceo.html">CEO</a>
+    </div>
+
+    <a href="https://github.com/YOUR_USERNAME/YOUR_REPO/releases/latest"
+       class="download-btn">
+       Download APK
+    </a>
+
+</nav>
+
+<section class="hero">
+
+    <div class="hero-content">
+        <h1>Welcome to UG Academy</h1>
+
+        <p>
+            Learn App Development, Web Development and Technology
+            with practical projects and premium study materials.
+        </p>
+
+        <a href="demo.html" class="demo-btn">Demo</a>
+    </div>
+
+</section>
+
+</div>
+
+</body>
+</html>
