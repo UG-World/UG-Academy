@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UG Academy</title>
 
-<style>
+    <style>
 *{
     margin:0;
     padding:0;
@@ -15,25 +15,30 @@
 
 body{
     min-height:100vh;
-    background:url('bg1.png') center center/cover no-repeat;
+    background:#ffffff;
+    color:#111;
 }
 
-/* Overlay */
+/* Overlay Remove */
 .overlay{
-    background:rgba(0,0,0,0.65);
     min-height:100vh;
+    background:white;
 }
 
 /* Navbar */
+
 nav{
     width:100%;
-    display:flex;
-    justify-content:space-between;
+    height:85px;
+    background:#fff;
+    display:grid;
+    grid-template-columns:auto 1fr auto;
     align-items:center;
-    padding:15px 5%;
-    backdrop-filter:blur(10px);
-    background:rgba(255,255,255,0.08);
+    padding:0 6%;
+    border-bottom:1px solid #e5e5e5;
 }
+
+/* Logo */
 
 .logo-box{
     display:flex;
@@ -44,38 +49,45 @@ nav{
 .logo-box img{
     width:55px;
     height:55px;
-    border-radius:15px;
     object-fit:cover;
 }
 
 .logo-box h2{
-    color:white;
-    font-size:1.4rem;
+    color:#111;
+    font-size:1.8rem;
+    font-weight:700;
 }
+
+/* Center Navigation */
 
 .nav-links{
     display:flex;
-    gap:25px;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
 }
 
 .nav-links a{
-    color:white;
+    color:#111;
     text-decoration:none;
     font-weight:600;
+    font-size:1rem;
     transition:.3s;
 }
 
 .nav-links a:hover{
-    color:#00c3ff;
+    color:#d4a300;
 }
+
+/* Download Button Right */
 
 .download-btn{
     text-decoration:none;
-    background:#00c3ff;
+    background:#d4a300;
     color:white;
-    padding:12px 22px;
-    border-radius:30px;
-    font-weight:bold;
+    padding:12px 24px;
+    border-radius:10px;
+    font-weight:700;
     transition:.3s;
 }
 
@@ -83,7 +95,7 @@ nav{
     transform:translateY(-2px);
 }
 
-/* Hero Section */
+/* Hero */
 
 .hero{
     min-height:85vh;
@@ -95,36 +107,38 @@ nav{
 }
 
 .hero-content{
-    color:white;
+    color:#111;
 }
 
 .hero-content h1{
-    font-size:3rem;
-    margin-bottom:15px;
+    font-size:3.5rem;
+    margin-bottom:20px;
+    font-weight:700;
 }
 
 .hero-content p{
-    font-size:1.1rem;
     max-width:700px;
     margin:auto;
     margin-bottom:30px;
+    font-size:1.1rem;
+    line-height:1.7;
+    color:#555;
 }
 
 .demo-btn{
     display:inline-block;
-    padding:18px 60px;
-    border-radius:20px;
-    background:white;
-    color:black;
+    padding:16px 55px;
+    background:#111;
+    color:white;
     text-decoration:none;
-    font-size:1.2rem;
-    font-weight:bold;
-    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    border-radius:12px;
+    font-size:1.1rem;
+    font-weight:700;
     transition:.3s;
 }
 
 .demo-btn:hover{
-    transform:scale(1.05);
+    transform:translateY(-2px);
 }
 
 /* Mobile */
@@ -132,25 +146,27 @@ nav{
 @media(max-width:900px){
 
     nav{
+        display:flex;
         flex-direction:column;
-        gap:20px;
+        height:auto;
+        padding:20px;
+        gap:18px;
     }
 
     .nav-links{
         flex-wrap:wrap;
-        justify-content:center;
-        gap:15px;
+        gap:20px;
     }
 
     .hero-content h1{
-        font-size:2rem;
+        font-size:2.2rem;
     }
 
     .hero-content p{
         font-size:1rem;
     }
 
-    .demo-btn{
+    .download-btn{
         width:220px;
         text-align:center;
     }
