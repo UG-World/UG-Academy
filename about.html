@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About | UG Academy</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#ffffff;
+    color:#111;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    height:85px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 6%;
+    border-bottom:1px solid #e8e8e8;
+    background:white;
+}
+
+.logo-box{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-box img{
+    width:55px;
+    height:55px;
+}
+
+.logo-box h2{
+    font-size:1.8rem;
+    font-weight:700;
+}
+
+.nav-links{
+    display:flex;
+    gap:40px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#111;
+    font-weight:600;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#d4a000;
+}
+
+/* HERO */
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:60px 8%;
+}
+
+.container{
+    max-width:1000px;
+    text-align:center;
+}
+
+.typewriter{
+    font-size:3rem;
+    font-weight:800;
+    margin-bottom:40px;
+    border-right:4px solid #d4a000;
+    white-space:nowrap;
+    overflow:hidden;
+    width:0;
+    animation:
+        typing 4s steps(30,end) forwards,
+        blink .8s infinite;
+}
+
+@keyframes typing{
+    from{
+        width:0;
+    }
+    to{
+        width:100%;
+    }
+}
+
+@keyframes blink{
+    50%{
+        border-color:transparent;
+    }
+}
+
+/* CONTENT */
+
+.about-card{
+    background:#fff;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.08);
+    text-align:left;
+}
+
+.about-card p{
+    font-size:1.1rem;
+    line-height:1.9;
+    color:#444;
+    margin-bottom:20px;
+}
+
+.highlight{
+    color:#d4a000;
+    font-weight:bold;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    nav{
+        flex-direction:column;
+        height:auto;
+        padding:20px;
+        gap:20px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:20px;
+    }
+
+    .typewriter{
+        font-size:1.8rem;
+        white-space:normal;
+        border-right:none;
+        width:100%;
+        animation:none;
+    }
+
+    .about-card{
+        padding:25px;
+    }
+
+    .about-card p{
+        font-size:1rem;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+
+    <div class="logo-box">
+        <img src="UG-Academy.png" alt="UG Academy">
+        <h2>UG Academy</h2>
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="facilities.html">Facilities</a>
+        <a href="CEO.html">CEO</a>
+    </div>
+
+</nav>
+
+<section class="hero">
+
+    <div class="container">
+
+        <h1 class="typewriter">
+            About UG Academy
+        </h1>
+
+        <div class="about-card">
+
+            <p>
+                <span class="highlight">UG Academy</span> is an educational product developed by UG World with a mission to make technology education accessible, practical, and affordable for everyone.
+            </p>
+
+            <p>
+                Our vision is to empower students with real-world skills in App Development, Web Development, Programming, and Modern Technologies without requiring expensive courses or complex learning paths.
+            </p>
+
+            <p>
+                At UG Academy, learning goes beyond theory. Students gain hands-on experience through live practical projects, real development workflows, and industry-standard practices that help build confidence and technical expertise.
+            </p>
+
+            <p>
+                We focus on teaching not only how to build applications and websites but also how to effectively use the professional tools, frameworks, platforms, and technologies used by modern developers worldwide.
+            </p>
+
+            <p>
+                Whether you are a beginner starting your first project or an aspiring developer looking to strengthen your skills, UG Academy provides a structured learning environment designed to help you learn faster, practice more, and create meaningful digital products.
+            </p>
+
+            <p>
+                Our long-term goal is simple: to ensure that every student, regardless of background, has the opportunity to learn valuable technology skills at an affordable cost and participate in the future of innovation.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>
