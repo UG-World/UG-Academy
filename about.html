@@ -77,45 +77,20 @@ nav{
 
 .container{
     max-width:1000px;
-    text-align:center;
+    width:100%;
 }
 
-.typewriter{
+.container h1{
     font-size:3rem;
+    margin-bottom:30px;
     font-weight:800;
-    margin-bottom:40px;
-    border-right:4px solid #d4a000;
-    white-space:nowrap;
-    overflow:hidden;
-    width:0;
-    animation:
-        typing 4s steps(30,end) forwards,
-        blink .8s infinite;
 }
-
-@keyframes typing{
-    from{
-        width:0;
-    }
-    to{
-        width:100%;
-    }
-}
-
-@keyframes blink{
-    50%{
-        border-color:transparent;
-    }
-}
-
-/* CONTENT */
 
 .about-card{
     background:#fff;
     padding:40px;
     border-radius:20px;
     box-shadow:0 10px 40px rgba(0,0,0,0.08);
-    text-align:left;
 }
 
 .about-card p{
@@ -125,10 +100,92 @@ nav{
     margin-bottom:20px;
 }
 
-.highlight{
-    color:#d4a000;
-    font-weight:bold;
+.cursor{
+    border-right:3px solid #d4a000;
+    animation:blink .7s infinite;
 }
+
+@keyframes blink{
+    50%{
+        border-color:transparent;
+    }
+}
+
+@media(max-width:900px){
+
+    .container h1{
+        font-size:2rem;
+    }
+
+    .about-card{
+        padding:25px;
+    }
+
+    .about-card p{
+        font-size:1rem;
+    }
+
+}
+
+</style>
+
+<script>
+
+const paragraphs = [
+
+"UG Academy is an educational product developed by UG World with a mission to make technology education accessible, practical, and affordable for everyone.",
+
+"Our vision is to empower students with real-world skills in App Development, Web Development, Programming, and Modern Technologies without requiring expensive courses or complex learning paths.",
+
+"At UG Academy, learning goes beyond theory. Students gain hands-on experience through live practical projects, real development workflows, and industry-standard practices that help build confidence and technical expertise.",
+
+"We focus on teaching not only how to build applications and websites but also how to effectively use the professional tools, frameworks, platforms, and technologies used by modern developers worldwide.",
+
+"Whether you are a beginner starting your first project or an aspiring developer looking to strengthen your skills, UG Academy provides a structured learning environment designed to help you learn faster, practice more, and create meaningful digital products.",
+
+"Our long-term goal is simple: to ensure that every student, regardless of background, has the opportunity to learn valuable technology skills at an affordable cost and participate in the future of innovation."
+
+];
+
+function typeText(index){
+
+    if(index >= paragraphs.length) return;
+
+    const element = document.getElementById("line" + (index + 1));
+
+    let i = 0;
+
+    element.classList.add("cursor");
+
+    function typing(){
+
+        if(i < paragraphs[index].length){
+
+            element.innerHTML += paragraphs[index].charAt(i);
+            i++;
+
+            setTimeout(typing,20);
+
+        }else{
+
+            element.classList.remove("cursor");
+
+            setTimeout(()=>{
+                typeText(index + 1);
+            },400);
+
+        }
+
+    }
+
+    typing();
+
+}
+
+window.onload = function(){
+    typeText(0);
+};
+
 
 /* MOBILE */
 
@@ -189,41 +246,23 @@ nav{
 
     <div class="container">
 
-        <h1>
-            About UG Academy
-        </h1>
+        <h1>About UG Academy</h1>
 
         <div class="about-card">
 
-            <p class="typewriter">
-                <span class="highlight">UG Academy</span> is an educational product developed by UG World with a mission to make technology education accessible, practical, and affordable for everyone.
-            </p>
-
-            <p class="typewriter">
-                Our vision is to empower students with real-world skills in App Development, Web Development, Programming, and Modern Technologies without requiring expensive courses or complex learning paths.
-            </p>
-
-            <p class="typewriter">
-                At UG Academy, learning goes beyond theory. Students gain hands-on experience through live practical projects, real development workflows, and industry-standard practices that help build confidence and technical expertise.
-            </p>
-
-            <p class="typewriter">
-                We focus on teaching not only how to build applications and websites but also how to effectively use the professional tools, frameworks, platforms, and technologies used by modern developers worldwide.
-            </p>
-
-            <p class="typewriter">
-                Whether you are a beginner starting your first project or an aspiring developer looking to strengthen your skills, UG Academy provides a structured learning environment designed to help you learn faster, practice more, and create meaningful digital products.
-            </p>
-
-            <p class="typewriter">
-                Our long-term goal is simple: to ensure that every student, regardless of background, has the opportunity to learn valuable technology skills at an affordable cost and participate in the future of innovation.
-            </p>
+            <p id="line1"></p>
+            <p id="line2"></p>
+            <p id="line3"></p>
+            <p id="line4"></p>
+            <p id="line5"></p>
+            <p id="line6"></p>
 
         </div>
 
     </div>
 
 </section>
+
 
 </body>
 </html>
