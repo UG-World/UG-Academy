@@ -255,8 +255,8 @@ padding:25px;
 <!-- CUSTOM MESSAGE -->
 <div id="customBox">
 <label>Your Message</label>
-<textarea id="customMessage" maxlength="500" placeholder="Write your message (max 500 words)"></textarea>
-<small id="wordCount">0 / 500 words</small>
+<textarea id="customMessage" maxlength="500" placeholder="Write your message (max 75 words)"></textarea>
+<small id="wordCount">0 / 75 words</small>
 </div>
 
 <button type="submit">Submit</button>
@@ -285,7 +285,7 @@ customMessage.setAttribute("required", "true");
 customBox.style.display = "none";
 customMessage.removeAttribute("required");
 customMessage.value = "";
-wordCount.textContent = "0 / 500 words";
+wordCount.textContent = "0 / 75 words";
 }
 });
 
@@ -293,12 +293,12 @@ wordCount.textContent = "0 / 500 words";
 customMessage.addEventListener("input", function(){
 let words = this.value.trim().split(/\s+/).filter(w => w.length > 0);
 
-if(words.length > 500){
-words = words.slice(0,500);
+if(words.length > 75){
+words = words.slice(10,75);
 this.value = words.join(" ");
 }
 
-wordCount.textContent = words.length + " / 500 words";
+wordCount.textContent = words.length + " / 75 words";
 });
 
 // SUBMIT CHECK
