@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Form</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:#f5f5f5;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+/* CARD */
+.form-container{
+    width:100%;
+    max-width:600px;
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* TITLE */
+.form-container h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#111;
+}
+
+/* LABEL */
+label{
+    display:block;
+    margin:12px 0 6px;
+    font-weight:600;
+    color:#222;
+}
+
+/* INPUTS */
+select, textarea, input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    outline:none;
+    font-size:1rem;
+    transition:.2s;
+}
+
+select:focus, textarea:focus{
+    border-color:#d4a300;
+}
+
+/* TEXTAREA */
+textarea{
+    resize:none;
+    min-height:120px;
+}
+
+/* BUTTON */
+button{
+    width:100%;
+    margin-top:20px;
+    padding:14px;
+    border:none;
+    background:#111;
+    color:#fff;
+    font-size:1.1rem;
+    font-weight:700;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#d4a300;
+    color:#111;
+}
+
+/* WORD COUNT */
+small{
+    display:block;
+    margin-top:6px;
+    color:#666;
+}
+
+/* HIDDEN BOX */
+#customBox{
+    display:none;
+    margin-top:10px;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+    .form-container{
+        padding:20px;
+    }
+
+    body{
+        padding:10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="form-container">
+    <h2>Contact Support</h2>
+
+    <form id="contactForm">
+
+        <!-- SELECT -->
+        <label>Select Issue Type</label>
+        <select id="issueType" required>
+            <option value="">-- Select Issue --</option>
+            <option value="website">Website Issue</option>
+            <option value="course">Course Inquiry</option>
+            <option value="payment">Payment Issue</option>
+            <option value="other">Other</option>
+        </select>
+
+        <!-- CUSTOM BOX -->
+        <div id="customBox">
+            <label>Describe Your Issue</label>
+            <textarea id="customMessage" maxlength="500" placeholder="Write your message (max 500 words)"></textarea>
+            <small id="wordCount">0 / 500 words</small>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+const issueType = document.getElementById("issueType");
+const customBox = document.getElementById("customBox");
+const customMessage = document.getElementById("customMessage");
+const wordCount = document.getElementById("wordCount");
+
+// SHOW / HIDE LOGIC
+issueType.addEventListener("change", function(){
+    if(this.value === "other"){
+        customBox.style.display = "block";
+        customMessage.setAttribute("required", "true");
+    } else {
+        customBox.style.display = "none";
+        customMessage.removeAttribute("required");
+        customMessage.value = "";
+        wordCount.textContent = "0 / 500 words";
+    }
+});
+
+// WORD LIMIT LOGIC
+customMessage.addEventListener("input", function(){
+    let words = this.value.trim().split(/\s+/).filter(w => w.length > 0);
+
+    if(words.length > 500){
+        words = words.slice(0,500);
+        this.value = words.join(" ");
+    }
+
+    wordCount.textContent = words.length + " / 500 words";
+});
+
+// SUBMIT VALIDATION
+document.getElementById("contactForm").addEventListener("submit", function(e){
+    if(issueType.value === "other" && customMessage.value.trim() === ""){
+        e.preventDefault();
+        alert("Please write your message.");
+    }
+});
+</script>
+
+</body>
+</html>
